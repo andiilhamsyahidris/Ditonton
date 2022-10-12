@@ -1,0 +1,26 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "backdrop_path": "/rkB4LyZHo1NHXFEDHl9vSD9r1lI.jpg",
+            "genre_ids": [
+                16,
+                10765,
+                10759,
+                18
+            ],
+            "id": 94605,
+            "name": "Arcane",
+            "original_name": "Arcane",
+            "overview": "Amid the stark discord of twin cities Piltover and Zaun, two sisters fight on rival sides of a war between magic technologies and clashing convictions.",
+            "popularity": 	119.061,
+            "poster_path": "/xQ6GijOFnxTyUzqiwGpVxgfcgqI.jpg",
+            "release_date": "2020-05-05",
+            "vote_average": 8.8,
+            "vote_count": 2552
+
+        }
+    ],
+    "total_pages": 1,
+    "total_results": 10
+}
