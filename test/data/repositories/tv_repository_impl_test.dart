@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:ditonton/common/exception.dart';
 import 'package:ditonton/common/failure.dart';
 import 'package:ditonton/data/models/genre_model.dart';
+import 'package:ditonton/data/models/season_model.dart';
 import 'package:ditonton/data/models/tv_model.dart';
 import 'package:ditonton/data/models/tv_series_detail_model.dart';
 import 'package:ditonton/data/repositories/tv_repository_impl.dart';
@@ -147,18 +148,30 @@ void main() {
   group('Get Tv Series Detail', () {
     final tId = 1;
     final tTvResponse = TvDetailModel(
-      id: 1,
-      name: 'name',
-      genres: [GenreModel(id: 1, name: 'Action')],
-      overview: 'overview',
-      popularity: 1,
-      posterPath: 'poster_path',
-      backdropPath: 'backdropPath',
-      voteCount: 1,
-      voteAverage: 1,
-      originalName: 'originalName',
-      releaseDate: 'releaseDate',
-    );
+        id: 1,
+        name: 'name',
+        genres: [GenreModel(id: 1, name: 'Action')],
+        overview: 'overview',
+        popularity: 1,
+        posterPath: 'poster_path',
+        backdropPath: 'backdropPath',
+        voteCount: 1,
+        voteAverage: 1,
+        originalName: 'originalName',
+        releaseDate: 'releaseDate',
+        firstAirDate: 'firstAirDate',
+        lastAirDate: 'lastAirDate',
+        numberOfEpisodes: 1,
+        numberOfSeasons: 1,
+        seasons: [
+          SeasonModel(
+              airDate: 'airDate',
+              episodeCount: 1,
+              name: 'name',
+              overview: 'overview',
+              posterPath: 'posterPath',
+              seasonNumber: 1)
+        ]);
 
     test(
         'should return Tv Series data when the call to remote data source is successful',
@@ -304,7 +317,7 @@ void main() {
       // act
       final result = await repositoryImpl.isAddedToWatchlist(tId);
       // assert
-      expect(result, false);
+      expect(result, Right(false));
     });
   });
   group('get watchlist movies', () {

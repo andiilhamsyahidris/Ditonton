@@ -3,6 +3,7 @@ import 'package:ditonton/data/models/tv_table.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
+import 'package:ditonton/domain/entities/season.dart';
 import 'package:ditonton/domain/entities/tv_detail.dart';
 import 'package:ditonton/domain/entities/tv_series.dart';
 
@@ -78,7 +79,20 @@ final testTvDetail = TvDetail(
     backdropPath: 'backdropPath',
     releaseDate: 'releaseDate',
     voteAverage: 1,
-    voteCount: 1);
+    voteCount: 1,
+    firstAirDate: 'firstAirDate',
+    lastAirDate: 'lastAirDate',
+    numberOfEpisodes: 1,
+    numberOfSeasons: 1,
+    seasons: [
+      Season(
+          airDate: 'airDate',
+          episodeCount: 1,
+          name: 'name',
+          overview: 'overview',
+          posterPath: 'posterPath',
+          seasonNumber: 1)
+    ]);
 
 final testMovieTable = MovieTable(
   id: 1,
