@@ -11,6 +11,7 @@ import 'package:ditonton/bloc_tv/tv_episode/tv_episode_bloc.dart';
 import 'package:ditonton/bloc_tv/tv_list_bloc/tv_list_bloc.dart';
 import 'package:ditonton/bloc_tv/tv_watchlist/tv_watchlist_bloc.dart';
 import 'package:ditonton/bloc_tv/watchlist_tv/watchlist_tv_bloc.dart';
+import 'package:ditonton/common/http_ssl_pinning.dart';
 import 'package:ditonton/data/datasources/db/database_helper.dart';
 import 'package:ditonton/data/datasources/db/database_helper_tv.dart';
 import 'package:ditonton/data/datasources/movie_local_data_source.dart';
@@ -42,7 +43,6 @@ import 'package:ditonton/domain/usecases/save_watchlist.dart';
 import 'package:ditonton/domain/usecases/save_watchlist_tv.dart';
 import 'package:ditonton/domain/usecases/search_movies.dart';
 import 'package:ditonton/domain/usecases/search_tv_series.dart';
-import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
 
 import 'bloc_movies/movie_list_bloc/movie_list_bloc.dart';
@@ -177,5 +177,5 @@ void init() {
   locator.registerLazySingleton<DatabaseHelperTv>(() => DatabaseHelperTv());
 
   // external
-  locator.registerLazySingleton(() => http.Client());
+  locator.registerLazySingleton(() => HttpSSLPinning.client);
 }

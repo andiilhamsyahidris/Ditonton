@@ -13,8 +13,8 @@ import 'package:ditonton/bloc_tv/tv_list_bloc/tv_list_bloc.dart';
 import 'package:ditonton/bloc_tv/tv_watchlist/tv_watchlist_bloc.dart';
 import 'package:ditonton/bloc_tv/watchlist_tv/watchlist_tv_bloc.dart';
 import 'package:ditonton/common/constants.dart';
+import 'package:ditonton/common/http_ssl_pinning.dart';
 import 'package:ditonton/common/utils.dart';
-import 'package:ditonton/domain/entities/season.dart';
 import 'package:ditonton/presentation/pages/about_page.dart';
 import 'package:ditonton/presentation/pages/movie_detail_page.dart';
 import 'package:ditonton/presentation/pages/home_movie_page.dart';
@@ -35,7 +35,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:ditonton/injection.dart' as di;
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await HttpSSLPinning.init();
+
   di.init();
   runApp(MyApp());
 }

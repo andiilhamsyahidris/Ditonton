@@ -161,7 +161,7 @@ class _TvSeasonDetailPageState extends State<TvSeasonDetailPage> {
                   children: <Widget>[
                     CachedNetworkImage(
                       imageUrl:
-                          'https://image.tmdb.org/t/p/w500${episode.stillPath}',
+                          'https://image.tmdb.org/t/p/w300${episode.stillPath}',
                       width: double.infinity,
                       height: 140,
                       placeholder: (context, url) => Center(
