@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ditonton/bloc_tv/tv_list_bloc/tv_list_bloc.dart';
+import 'package:ditonton/presentation/bloc_tv/tv_list_bloc/tv_list_bloc.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/custom_information.dart';
 import 'package:ditonton/domain/entities/tv_series.dart';
@@ -53,104 +53,107 @@ class _HomeTvPageState extends State<HomeTvPage> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Now Playing',
-                style: kHeading6,
-              ),
-              BlocBuilder<TvListBloc, TvListState>(
-                builder: (context, state) {
-                  if (state is TvListLoading) {
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  } else if (state is TvListHasData) {
-                    final result = state.onTheAirTvSeries;
-                    return TvList(result);
-                  } else if (state is TvListError) {
-                    return Expanded(
-                      child: Center(
-                        child: Text(state.message),
-                      ),
-                    );
-                  } else {
-                    return Expanded(
-                      child: CustomInformation(
-                        asset: 'assets/search.svg',
-                        title: 'Data tidak ditemukan',
-                        subtitle: '',
-                      ),
-                    );
-                  }
-                },
-              ),
-              _buildSubHeading(
-                  title: 'Popular',
-                  onTap: () {
-                    Navigator.pushNamed(
-                        context, PopularTvSeriesPage.ROUTE_NAME);
-                  }),
-              BlocBuilder<TvListBloc, TvListState>(
-                builder: (context, state) {
-                  if (state is TvListLoading) {
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  } else if (state is TvListHasData) {
-                    final result = state.popularTvSeries;
-                    return TvList(result);
-                  } else if (state is TvListError) {
-                    return Expanded(
-                      child: Center(
-                        child: Text(state.message),
-                      ),
-                    );
-                  } else {
-                    return Expanded(
-                      child: CustomInformation(
-                        asset: 'assets/search.svg',
-                        title: 'Data tidak ditemukan',
-                        subtitle: '',
-                      ),
-                    );
-                  }
-                },
-              ),
-              _buildSubHeading(
-                  title: 'Top Rated',
-                  onTap: () {
-                    Navigator.pushNamed(
-                        context, TopRatedTvSeriesPage.ROUTE_NAME);
-                  }),
-              BlocBuilder<TvListBloc, TvListState>(
-                builder: (context, state) {
-                  if (state is TvListLoading) {
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  } else if (state is TvListHasData) {
-                    final result = state.topRatedTvSeries;
-                    return TvList(result);
-                  } else if (state is TvListError) {
-                    return Expanded(
-                      child: Center(
-                        child: Text(state.message),
-                      ),
-                    );
-                  } else {
-                    return Expanded(
-                      child: CustomInformation(
-                        asset: 'assets/search.svg',
-                        title: 'Data tidak ditemukan',
-                        subtitle: '',
-                      ),
-                    );
-                  }
-                },
-              ),
-            ],
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Now Playing',
+                  style: kHeading6,
+                ),
+                BlocBuilder<TvListBloc, TvListState>(
+                  builder: (context, state) {
+                    if (state is TvListLoading) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else if (state is TvListHasData) {
+                      final result = state.onTheAirTvSeries;
+                      return TvList(result);
+                    } else if (state is TvListError) {
+                      return Expanded(
+                        child: Center(
+                          child: Text(state.message),
+                        ),
+                      );
+                    } else {
+                      return Expanded(
+                        child: CustomInformation(
+                          asset: 'assets/search.svg',
+                          title: 'Data tidak ditemukan',
+                          subtitle: '',
+                        ),
+                      );
+                    }
+                  },
+                ),
+                _buildSubHeading(
+                    title: 'Popular',
+                    onTap: () {
+                      Navigator.pushNamed(
+                          context, PopularTvSeriesPage.ROUTE_NAME);
+                    }),
+                BlocBuilder<TvListBloc, TvListState>(
+                  builder: (context, state) {
+                    if (state is TvListLoading) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else if (state is TvListHasData) {
+                      final result = state.popularTvSeries;
+                      return TvList(result);
+                    } else if (state is TvListError) {
+                      return Expanded(
+                        child: Center(
+                          child: Text(state.message),
+                        ),
+                      );
+                    } else {
+                      return Expanded(
+                        child: CustomInformation(
+                          asset: 'assets/search.svg',
+                          title: 'Data tidak ditemukan',
+                          subtitle: '',
+                        ),
+                      );
+                    }
+                  },
+                ),
+                _buildSubHeading(
+                    title: 'Top Rated',
+                    onTap: () {
+                      Navigator.pushNamed(
+                          context, TopRatedTvSeriesPage.ROUTE_NAME);
+                    }),
+                BlocBuilder<TvListBloc, TvListState>(
+                  builder: (context, state) {
+                    if (state is TvListLoading) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else if (state is TvListHasData) {
+                      final result = state.topRatedTvSeries;
+                      return TvList(result);
+                    } else if (state is TvListError) {
+                      return Expanded(
+                        child: Center(
+                          child: Text(state.message),
+                        ),
+                      );
+                    } else {
+                      return Expanded(
+                        child: CustomInformation(
+                          asset: 'assets/search.svg',
+                          title: 'Data tidak ditemukan',
+                          subtitle: '',
+                        ),
+                      );
+                    }
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

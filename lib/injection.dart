@@ -1,16 +1,16 @@
-import 'package:ditonton/bloc_movies/movie_detail_bloc/movie_detail_bloc.dart';
-import 'package:ditonton/bloc_movies/movie_watchlist_bloc/movie_watchlist_bloc.dart';
-import 'package:ditonton/bloc_movies/popular_movies_bloc/popular_movies_bloc.dart';
-import 'package:ditonton/bloc_movies/search_bloc/search_bloc.dart';
-import 'package:ditonton/bloc_movies/top_rated_movies_bloc/top_rated_movies_bloc.dart';
-import 'package:ditonton/bloc_movies/watchlist_movie/watchlist_movie_bloc.dart';
-import 'package:ditonton/bloc_tv/popular_tv_bloc/popular_tv_bloc.dart';
-import 'package:ditonton/bloc_tv/top_rated_tv_bloc/top_rated_tv_bloc.dart';
-import 'package:ditonton/bloc_tv/tv_detail_bloc/tv_detail_bloc.dart';
-import 'package:ditonton/bloc_tv/tv_episode/tv_episode_bloc.dart';
-import 'package:ditonton/bloc_tv/tv_list_bloc/tv_list_bloc.dart';
-import 'package:ditonton/bloc_tv/tv_watchlist/tv_watchlist_bloc.dart';
-import 'package:ditonton/bloc_tv/watchlist_tv/watchlist_tv_bloc.dart';
+import 'package:ditonton/presentation/bloc_movies/movie_detail_bloc/movie_detail_bloc.dart';
+import 'package:ditonton/presentation/bloc_movies/movie_watchlist_bloc/movie_watchlist_bloc.dart';
+import 'package:ditonton/presentation/bloc_movies/popular_movies_bloc/popular_movies_bloc.dart';
+import 'package:ditonton/presentation/bloc_movies/search_bloc/search_bloc.dart';
+import 'package:ditonton/presentation/bloc_movies/top_rated_movies_bloc/top_rated_movies_bloc.dart';
+import 'package:ditonton/presentation/bloc_movies/watchlist_movie/watchlist_movie_bloc.dart';
+import 'package:ditonton/presentation/bloc_tv/popular_tv_bloc/popular_tv_bloc.dart';
+import 'package:ditonton/presentation/bloc_tv/top_rated_tv_bloc/top_rated_tv_bloc.dart';
+import 'package:ditonton/presentation/bloc_tv/tv_detail_bloc/tv_detail_bloc.dart';
+import 'package:ditonton/presentation/bloc_tv/tv_episode/tv_episode_bloc.dart';
+import 'package:ditonton/presentation/bloc_tv/tv_list_bloc/tv_list_bloc.dart';
+import 'package:ditonton/presentation/bloc_tv/tv_watchlist/tv_watchlist_bloc.dart';
+import 'package:ditonton/presentation/bloc_tv/watchlist_tv/watchlist_tv_bloc.dart';
 import 'package:ditonton/common/http_ssl_pinning.dart';
 import 'package:ditonton/data/datasources/db/database_helper.dart';
 import 'package:ditonton/data/datasources/db/database_helper_tv.dart';
@@ -45,7 +45,7 @@ import 'package:ditonton/domain/usecases/search_movies.dart';
 import 'package:ditonton/domain/usecases/search_tv_series.dart';
 import 'package:get_it/get_it.dart';
 
-import 'bloc_movies/movie_list_bloc/movie_list_bloc.dart';
+import 'presentation/bloc_movies/movie_list_bloc/movie_list_bloc.dart';
 
 final locator = GetIt.instance;
 

@@ -1,4 +1,4 @@
-import 'package:ditonton/bloc_movies/watchlist_movie/watchlist_movie_bloc.dart';
+import 'package:ditonton/presentation/bloc_movies/watchlist_movie/watchlist_movie_bloc.dart';
 import 'package:ditonton/common/custom_information.dart';
 import 'package:ditonton/common/utils.dart';
 import 'package:ditonton/presentation/widgets/movie_card_list.dart';

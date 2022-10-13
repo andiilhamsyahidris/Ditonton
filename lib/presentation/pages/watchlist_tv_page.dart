@@ -1,4 +1,4 @@
-import 'package:ditonton/bloc_tv/watchlist_tv/watchlist_tv_bloc.dart';
+import 'package:ditonton/presentation/bloc_tv/watchlist_tv/watchlist_tv_bloc.dart';
 import 'package:ditonton/common/custom_information.dart';
 import 'package:ditonton/common/utils.dart';
 import 'package:ditonton/presentation/widgets/tv_card_list.dart';

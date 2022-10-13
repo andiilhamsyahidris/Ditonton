@@ -1,4 +1,4 @@
-import 'package:ditonton/bloc_tv/top_rated_tv_bloc/top_rated_tv_bloc.dart';
+import 'package:ditonton/presentation/bloc_tv/top_rated_tv_bloc/top_rated_tv_bloc.dart';
 import 'package:ditonton/common/custom_information.dart';
 import 'package:ditonton/presentation/widgets/tv_card_list.dart';
 import 'package:flutter/material.dart';
@@ -35,29 +35,23 @@ class _TopRatedTvSeriesPageState extends State<TopRatedTvSeriesPage> {
               );
             } else if (state is TopRatedTvHasData) {
               final result = state.resultTv;
-              return Expanded(
-                child: ListView.builder(
-                  padding: const EdgeInsets.all(8.0),
-                  itemBuilder: (context, index) {
-                    final tv = result[index];
-                    return TvCard(tv);
-                  },
-                  itemCount: result.length,
-                ),
+              return ListView.builder(
+                padding: const EdgeInsets.all(8.0),
+                itemBuilder: (context, index) {
+                  final tv = result[index];
+                  return TvCard(tv);
+                },
+                itemCount: result.length,
               );
             } else if (state is TopRatedTvError) {
-              return Expanded(
-                child: Center(
-                  child: Text(state.message),
-                ),
+              return Center(
+                child: Text(state.message),
               );
             } else {
-              return Expanded(
-                child: CustomInformation(
-                  asset: 'assets/search.svg',
-                  title: 'Data tidak ditemukan',
-                  subtitle: '',
-                ),
+              return CustomInformation(
+                asset: 'assets/search.svg',
+                title: 'Data tidak ditemukan',
+                subtitle: '',
               );
             }
           },

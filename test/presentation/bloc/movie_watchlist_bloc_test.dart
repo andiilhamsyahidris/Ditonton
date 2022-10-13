@@ -1,6 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
-import 'package:ditonton/bloc_movies/movie_watchlist_bloc/movie_watchlist_bloc.dart';
+import 'package:ditonton/presentation/bloc_movies/movie_watchlist_bloc/movie_watchlist_bloc.dart';
 import 'package:ditonton/common/failure.dart';
 import 'package:ditonton/domain/usecases/get_watchlist_status.dart';
 import 'package:ditonton/domain/usecases/remove_watchlist.dart';

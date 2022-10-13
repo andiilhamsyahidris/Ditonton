@@ -2,11 +2,13 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:ditonton/common/exception.dart';
 import 'package:ditonton/common/failure.dart';
+import 'package:ditonton/data/models/episode_model.dart';
 import 'package:ditonton/data/models/genre_model.dart';
 import 'package:ditonton/data/models/season_model.dart';
 import 'package:ditonton/data/models/tv_model.dart';
 import 'package:ditonton/data/models/tv_series_detail_model.dart';
 import 'package:ditonton/data/repositories/tv_repository_impl.dart';
+import 'package:ditonton/domain/entities/episode.dart';
 import 'package:ditonton/domain/entities/tv_series.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
@@ -57,6 +59,25 @@ void main() {
   final tTvModelList = <TvModel>[tTvModel];
   final tTvList = <TvSeries>[tTv];
 
+  const tEpisodeModel = EpisodeModel(
+    airDate: "2013-09-12",
+    episodeNumber: 1,
+    name: "Episode 1",
+    overview:
+        "Birmingham, 1919. Thomas Shelby controls the Peaky Blinders, one of the city's most feared criminal organisations, but his ambitions go beyond running the streets. When a crate of guns goes missing, Thomas recognises an opportunity to move up in the world.",
+    stillPath: "/tplu6cXP312IN5rrT5K81zFZpMd.jpg",
+  );
+  const tEpisode = Episode(
+    airDate: "2013-09-12",
+    episodeNumber: 1,
+    name: "Episode 1",
+    overview:
+        "Birmingham, 1919. Thomas Shelby controls the Peaky Blinders, one of the city's most feared criminal organisations, but his ambitions go beyond running the streets. When a crate of guns goes missing, Thomas recognises an opportunity to move up in the world.",
+    stillPath: "/tplu6cXP312IN5rrT5K81zFZpMd.jpg",
+  );
+  final tEpisodeModelList = <EpisodeModel>[tEpisodeModel];
+  final tEpisodeList = <Episode>[tEpisode];
+
   group('On The Air Tv', () {
     test(
         'should return remote data when the call to remote data source is successful',
@@ -80,16 +101,6 @@ void main() {
 
       expect(result, equals(Left(ServerFailure(''))));
     });
-    // test(
-    //     'should return connection failure when the device is not connected to internet',
-    //     () async {
-    //   when(mockTvRemoteDataSource.getNowPlayingTvSeries())
-    //       .thenThrow(SocketException('Failed to Connect to the Network'));
-    //   final result = await repositoryImpl.getNowPlayingTvSeries();
-    //   verify(mockTvRemoteDataSource.getNowPlayingTvSeries());
-    //   expect(result,
-    //       equals(Left(ConnectionFailure('Failed to Connect to the Network'))));
-    // });
   });
 
   group('Popular Tv Series', () {
@@ -330,6 +341,29 @@ void main() {
       // assert
       final resultList = result.getOrElse(() => []);
       expect(resultList, [testWatchlistTv]);
+    });
+  });
+
+  group('get tv show episodes', () {
+    const tId = 1;
+    const tSeasonNumber = 1;
+    test('should return tv show episodes', () async {
+      when(mockTvRemoteDataSource.getTvShowEpisodes(tId, tSeasonNumber))
+          .thenAnswer((_) async => tEpisodeModelList);
+
+      final result = await repositoryImpl.getTvShowEpisodes(tId, tSeasonNumber);
+      final resultList = result.getOrElse(() => []);
+      expect(resultList, tEpisodeList);
+    });
+    test('should return server failure when call data is unsuccessful',
+        () async {
+      when(mockTvRemoteDataSource.getTvShowEpisodes(tId, tSeasonNumber))
+          .thenThrow(ServerException());
+      final result = await repositoryImpl.getTvShowEpisodes(tId, tSeasonNumber);
+      expect(
+        result,
+        Left(ServerFailure('')),
+      );
     });
   });
 }

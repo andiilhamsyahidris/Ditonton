@@ -7,7 +7,7 @@ import 'dart:async' as _i8;
 
 import 'package:bloc/bloc.dart' as _i9;
 import 'package:dartz/dartz.dart' as _i7;
-import 'package:ditonton/bloc_movies/movie_list_bloc/movie_list_bloc.dart'
+import 'package:ditonton/presentation/bloc_movies/movie_list_bloc/movie_list_bloc.dart'
     as _i5;
 import 'package:ditonton/common/failure.dart' as _i10;
 import 'package:ditonton/domain/entities/movie.dart' as _i11;

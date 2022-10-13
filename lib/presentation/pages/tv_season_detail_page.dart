@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ditonton/bloc_tv/tv_episode/tv_episode_bloc.dart';
+import 'package:ditonton/presentation/bloc_tv/tv_episode/tv_episode_bloc.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/domain/entities/episode.dart';
 import 'package:ditonton/domain/entities/season.dart';

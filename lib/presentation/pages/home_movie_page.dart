@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ditonton/bloc_movies/movie_list_bloc/movie_list_bloc.dart';
+import 'package:ditonton/presentation/bloc_movies/movie_list_bloc/movie_list_bloc.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/custom_information.dart';
 import 'package:ditonton/domain/entities/movie.dart';
@@ -9,7 +9,6 @@ import 'package:ditonton/presentation/pages/search_page_movie.dart';
 import 'package:ditonton/presentation/pages/top_rated_movies_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_page.dart';
 import 'package:ditonton/presentation/pages/watchlist_movies_page.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

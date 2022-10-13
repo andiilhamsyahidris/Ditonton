@@ -1,6 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
-import 'package:ditonton/bloc_movies/movie_detail_bloc/movie_detail_bloc.dart';
+import 'package:ditonton/presentation/bloc_movies/movie_detail_bloc/movie_detail_bloc.dart';
 import 'package:ditonton/common/failure.dart';
 import 'package:ditonton/domain/usecases/get_movie_detail.dart';
 import 'package:ditonton/domain/usecases/get_movie_recommendations.dart';

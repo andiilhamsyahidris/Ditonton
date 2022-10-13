@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ditonton/bloc_tv/tv_detail_bloc/tv_detail_bloc.dart';
-import 'package:ditonton/bloc_tv/tv_watchlist/tv_watchlist_bloc.dart';
+import 'package:ditonton/presentation/bloc_tv/tv_detail_bloc/tv_detail_bloc.dart';
+import 'package:ditonton/presentation/bloc_tv/tv_watchlist/tv_watchlist_bloc.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/tv_detail.dart';
