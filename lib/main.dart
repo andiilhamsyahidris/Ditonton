@@ -15,6 +15,7 @@ import 'package:ditonton/bloc_tv/watchlist_tv/watchlist_tv_bloc.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/http_ssl_pinning.dart';
 import 'package:ditonton/common/utils.dart';
+import 'package:ditonton/firebase_options.dart';
 import 'package:ditonton/presentation/pages/about_page.dart';
 import 'package:ditonton/presentation/pages/movie_detail_page.dart';
 import 'package:ditonton/presentation/pages/home_movie_page.dart';
@@ -29,6 +30,7 @@ import 'package:ditonton/presentation/pages/tv_season_detail_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_page.dart';
 import 'package:ditonton/presentation/pages/watchlist_movies_page.dart';
 import 'package:ditonton/presentation/pages/watchlist_tv_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,6 +41,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await HttpSSLPinning.init();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   di.init();
   runApp(MyApp());

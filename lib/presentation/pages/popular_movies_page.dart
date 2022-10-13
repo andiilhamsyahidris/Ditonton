@@ -1,10 +1,8 @@
 import 'package:ditonton/bloc_movies/popular_movies_bloc/popular_movies_bloc.dart';
 import 'package:ditonton/common/custom_information.dart';
-import 'package:ditonton/presentation/pages/home_movie_page.dart';
 import 'package:ditonton/presentation/widgets/movie_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
 
 class PopularMoviesPage extends StatefulWidget {
   static const ROUTE_NAME = '/popular-movie';

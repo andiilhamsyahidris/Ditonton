@@ -24,6 +24,8 @@ dependencies:
   sqflite_sqlcipher: ^2.1.0  
   rxdart: ^0.27.1
   path_provider: ^2.0.2
+  firebase_core: ^1.24.0
+  firebase_crashlytics: ^2.9.0
   flutter_svg: ^1.1.5
   flutter_bloc: ^8.0.0
   encrypt: ^5.0.1
