@@ -50,111 +50,55 @@ class _HomeTvPageState extends State<HomeTvPage> {
               icon: Icon(Icons.download))
         ],
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Now Playing',
-                  style: kHeading6,
-                ),
-                BlocBuilder<TvListBloc, TvListState>(
-                  builder: (context, state) {
-                    if (state is TvListLoading) {
-                      return Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    } else if (state is TvListHasData) {
-                      final result = state.onTheAirTvSeries;
-                      return TvList(result);
-                    } else if (state is TvListError) {
-                      return Expanded(
-                        child: Center(
-                          child: Text(state.message),
-                        ),
-                      );
-                    } else {
-                      return Expanded(
-                        child: CustomInformation(
-                          asset: 'assets/search.svg',
-                          title: 'Data tidak ditemukan',
-                          subtitle: '',
-                        ),
-                      );
-                    }
-                  },
-                ),
-                _buildSubHeading(
+        child: BlocBuilder<TvListBloc, TvListState>(
+          builder: (context, state) {
+            if (state is TvListLoading) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  CircularProgressIndicator(),
+                ],
+              );
+            } else if (state is TvListHasData) {
+              final resultOnTheAir = state.onTheAirTvSeries;
+              final resultPopular = state.popularTvSeries;
+              final resultTopRated = state.topRatedTvSeries;
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'On the Air',
+                    style: kHeading6,
+                  ),
+                  TvList(resultOnTheAir),
+                  _buildSubHeading(
                     title: 'Popular',
-                    onTap: () {
-                      Navigator.pushNamed(
-                          context, PopularTvSeriesPage.ROUTE_NAME);
-                    }),
-                BlocBuilder<TvListBloc, TvListState>(
-                  builder: (context, state) {
-                    if (state is TvListLoading) {
-                      return Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    } else if (state is TvListHasData) {
-                      final result = state.popularTvSeries;
-                      return TvList(result);
-                    } else if (state is TvListError) {
-                      return Expanded(
-                        child: Center(
-                          child: Text(state.message),
-                        ),
-                      );
-                    } else {
-                      return Expanded(
-                        child: CustomInformation(
-                          asset: 'assets/search.svg',
-                          title: 'Data tidak ditemukan',
-                          subtitle: '',
-                        ),
-                      );
-                    }
-                  },
-                ),
-                _buildSubHeading(
+                    onTap: () => Navigator.pushNamed(
+                        context, PopularTvSeriesPage.ROUTE_NAME),
+                  ),
+                  TvList(resultPopular),
+                  _buildSubHeading(
                     title: 'Top Rated',
-                    onTap: () {
-                      Navigator.pushNamed(
-                          context, TopRatedTvSeriesPage.ROUTE_NAME);
-                    }),
-                BlocBuilder<TvListBloc, TvListState>(
-                  builder: (context, state) {
-                    if (state is TvListLoading) {
-                      return Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    } else if (state is TvListHasData) {
-                      final result = state.topRatedTvSeries;
-                      return TvList(result);
-                    } else if (state is TvListError) {
-                      return Expanded(
-                        child: Center(
-                          child: Text(state.message),
-                        ),
-                      );
-                    } else {
-                      return Expanded(
-                        child: CustomInformation(
-                          asset: 'assets/search.svg',
-                          title: 'Data tidak ditemukan',
-                          subtitle: '',
-                        ),
-                      );
-                    }
-                  },
-                ),
-              ],
-            ),
-          ),
+                    onTap: () => Navigator.pushNamed(
+                        context, TopRatedTvSeriesPage.ROUTE_NAME),
+                  ),
+                  TvList(resultTopRated),
+                ],
+              );
+            } else if (state is TvListError) {
+              return Center(
+                child: Text(state.message),
+              );
+            } else {
+              return CustomInformation(
+                asset: 'assets/search.svg',
+                title: 'Data tidak ditemukan',
+                subtitle: '',
+              );
+            }
+          },
         ),
       ),
     );
